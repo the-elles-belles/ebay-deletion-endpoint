@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: ebay-deletion-endpoint
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: EBAY_VERIFICATION_TOKEN
+        value: grading-arbitrage-ebay-verify
+      - key: ENDPOINT_URL
+        sync: false   # you'll fill this in after deploy — it's your Render URL
